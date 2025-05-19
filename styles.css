@@ -126,6 +126,11 @@ button:hover {
         padding: 8px;
     }
 
+    input[type="password"] {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
     button {
         font-size: 0.9em;
         padding: 8px 16px;
