@@ -1,1 +1,37 @@
-The end!
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clear JSONBin</title>
+</head>
+<body>
+  <button onclick="clearBin()">Clear JSONBin</button>
+
+  <script>
+    async function clearBin() {
+      const binId = '682a717c8561e97a5016d732';
+      const masterKey = '$2a$10$fW9BFtbpQtW4xz3YOsrkjuueazuImGJzWfDV4ImatbY.vCWcw2gZ2';
+      const url = `https://api.jsonbin.io/v3/b/${binId}`;
+
+      try {
+        const response = await fetch(url, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Master-Key': masterKey
+          },
+          body: JSON.stringify({})
+        });
+
+        if (response.ok) {
+          alert('Bin cleared successfully!');
+        } else {
+          const error = await response.json();
+          alert('Failed to clear bin: ' + JSON.stringify(error));
+        }
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    }
+  </script>
+</body>
+</html>
