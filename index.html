@@ -4,7 +4,7 @@
   <title>Clear JSONBin</title>
 </head>
 <body>
-  <button onclick="clearBin()">Clear Bin</button>
+  <button onclick="clearBin()">Clear JSONBin</button>
 
   <script>
     async function clearBin() {
@@ -19,7 +19,7 @@
             'Content-Type': 'application/json',
             'X-Master-Key': masterKey
           },
-          body: JSON.stringify([])  // Use [] instead of {}
+          body: JSON.stringify({ status: "cleared" })  // This ensures it isn't blank
         });
 
         if (response.ok) {
